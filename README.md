@@ -15,6 +15,12 @@ kubectl create ns chaos-app
 kubectl -n chaos-app create deploy httpd --image=httpd --replicas=2
 ```
 
+## Run experiment "pod-kill"
+```BASH
+kubectl create ns chaos-app
+kubectl -n chaos-app create -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-kill.yaml
+```
+
 
 
 ## Clear
