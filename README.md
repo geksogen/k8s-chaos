@@ -6,6 +6,7 @@
 helm repo add chaos-mesh https://charts.chaos-mesh.org
 helm repo update
 helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --create-namespace --set dashboard.create=true
+helm upgrade chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --set dashboard.securityMode=false
 ```
 
 ### Configure app
