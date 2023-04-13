@@ -4,7 +4,7 @@ metadata:
   name: schedule-pod-kill-example
   namespace: chaos-testing
 spec:
-  schedule: "@every 5s"
+  schedule: "@every 20s"
   type: "PodChaos"
   historyLimit: 5
   concurrencyPolicy: Forbid
