@@ -11,4 +11,4 @@ spec:
     namespaces:
       - chaos-app
     labelSelectors:
-      "app.kubernetes.io/component": "httpd"
+      "app": "httpd"
