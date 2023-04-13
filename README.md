@@ -18,7 +18,7 @@ kubectl -n chaos-app create deploy httpd --image=httpd --replicas=2
 
 ### Run experiment "pod-kill"
 ```BASH
-kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-kill.yaml
+kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-kill.yaml
 watch kubectl -n chaos-app get pod
 kubectl delete -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-kill.yaml
 ```
@@ -26,7 +26,7 @@ Until now Chaos Mesh didn't support updating a chaos. You can choose to create a
 
 ### Run cyclic experiment "pod-kill"
 ```BASH
-kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/cyclic-pod-kill.yaml
+kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/cyclic-pod-kill.yaml
 watch kubectl -n chaos-app get pod
 kubectl describe podchaos schedule-pod-kill-example -n chaos-testing
 kubectl delete -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/cyclic-pod-kill.yaml
@@ -37,11 +37,11 @@ kubectl delete -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/ex
 helm uninstall chaos-mesh --namespace=chaos-testing
 kubectl -n chaos-app delete all -l app=httpd
 kubectl delete ns chaos-app
-kubectl delete ns chaos-app
+kubectl delete ns chaos-testing
 ```
 
 ###Reference links
 
-
 * [workflow](https://chaos-mesh.org/docs/2.3.3/create-chaos-mesh-workflow/)
 * [github-actions](https://chaos-mesh.org/docs/2.3.3/integrate-chaos-mesh-into-github-actions/)
+* [examples-experement](https://github.com/chaos-mesh/chaos-mesh/tree/master/examples)
