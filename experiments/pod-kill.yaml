@@ -6,9 +6,11 @@ metadata:
 spec:
   action: pod-kill
   mode: one
-  duration: '30s'
+  duration: '60s'
   selector:
     namespaces:
       - chaos-app
     labelSelectors:
       "app": "httpd"
+  scheduler:
+    cron: "@every 2m"
