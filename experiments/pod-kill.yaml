@@ -6,11 +6,9 @@ metadata:
 spec:
   action: pod-kill
   mode: one
-  duration: '60s'
+  duration: '30s'
   selector:
     namespaces:
       - chaos-app
     labelSelectors:
-      "app": "httpd"
-  scheduler:
-    cron: "@every 2m"
+      "app.kubernetes.io/component": "httpd"
