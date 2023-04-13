@@ -23,8 +23,14 @@ kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s
 watch kubectl -n chaos-app get pod
 kubectl delete -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-kill.yaml
 ```
+Until now Chaos Mesh didn't support updating a chaos. You can choose to create a new chaos with a different name instead.
 
-Ref #2227. Until now Chaos Mesh didn't support updating a chaos. You can choose to create a new chaos with a different name instead.
+## Run cyclic experiment "pod-kill"
+```BASH
+kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/cyclic-pod-kill.yaml
+watch kubectl -n chaos-app get pod
+kubectl delete -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/cyclic-pod-kill.yaml
+```
 
 ## Clear
 ```BASH

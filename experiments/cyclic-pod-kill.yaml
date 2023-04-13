@@ -1,18 +1,18 @@
 apiVersion: chaos-mesh.org/v1alpha1
 kind: Schedule
 metadata:
-  name: schedule-pod-kill
+  name: schedule-pod-kill-example
+  namespace: chaos-testing
 spec:
-  schedule: '2 * * * *'
-  historyLimit: 2
-  concurrencyPolicy: 'Allow'
-  type: 'PodChaos'
-  PodChaos:
-    action: pod-kill
-      mode: one
-      duration: '30s'
-      selector:
-        namespaces:
-          - chaos-app
-        labelSelectors:
-          "app": "httpd"
+  schedule: "@every 5s"
+  type: "PodChaos"
+  historyLimit: 5
+  concurrencyPolicy: Forbid
+  podChaos:
+    action: "pod-kill"
+    mode: one
+    selector:
+      namespaces:
+        - chaos-app
+      labelSelectors:
+        "app": "httpd"
