@@ -10,7 +10,7 @@ spec:
     namespaces:
       - chaos-app
     labelSelectors:
-      'app': 'chaos-app-backend'
+      'io.kompose.service': 'chaos-app-backend-service'
   delay:
     latency: '5s'
     correlation: '100'
