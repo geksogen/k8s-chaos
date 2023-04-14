@@ -34,9 +34,14 @@ kubectl delete -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/ex
 
 ### Run experiment "network-faults"
 ```BASH
-
+kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/network-faults/deployment_app.yaml
+kubectl -n chaos-app run mycurlpod --image=curlimages/curl -i --tty -- sh
+curl -X GET http://chaos-app-backend-service:5000
+for i in `seq 10000`; do curl -X GET http://chaos-app-backend-service:5000;\n; sleep 0.1; done
 ```
-
+```BASH
+kubectl apply -f 
+```
 ### Clear
 ```BASH
 helm uninstall chaos-mesh --namespace=chaos-testing

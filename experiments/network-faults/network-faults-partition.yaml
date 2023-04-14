@@ -1,0 +1,22 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: partition
+  namespace: chaos-testing
+spec:
+  action: partition
+  mode: all
+  selector:
+    namespaces:
+      - chaos-app
+    labelSelectors:
+      'app': 'mycurlpod'
+  direction: to
+  target:
+    mode: all
+    selector:
+      namespaces:
+        - chaos-app
+      labelSelectors:
+        'app': 'chaos-app-backend'
+  duration: "50s"
