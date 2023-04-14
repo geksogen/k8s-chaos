@@ -1,0 +1,17 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: loss
+  namespace: chaos-testing
+spec:
+  action: loss
+  mode: one
+  selector:
+    namespaces:
+      - chaos-app
+    labelSelectors:
+      'io.kompose.service': 'chaos-app-backend-service'
+  loss:
+    loss: "25"
+    correlation: "25"
+  duration: "10s"
