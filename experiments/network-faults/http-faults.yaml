@@ -6,6 +6,8 @@ metadata:
 spec:
   mode: all
   selector:
+    namespaces:
+      - chaos-app
     labelSelectors:
       "app": "chaos-app-backend"
   target: Request
