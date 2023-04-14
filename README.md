@@ -46,6 +46,8 @@ kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/exp
 ```BASH
 helm uninstall chaos-mesh --namespace=chaos-testing
 kubectl -n chaos-app delete all -l app=httpd
+kubectl -n chaos-app delete all -l app=chaos-app-backend-service
+kubectl -n chaos-app delete all -l app=chaos-app-backend
 kubectl delete ns chaos-app
 kubectl delete ns chaos-testing
 ```
@@ -61,5 +63,5 @@ sh ./app.sh
 kubectl patch svc web-show -n chaos-app -p '{"spec": {"type": "NodePort"}}'
 ```
 ```BASH
-
+kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/web-app/cyclic-web-kill-pod.yaml
 ```
