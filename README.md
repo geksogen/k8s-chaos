@@ -40,7 +40,7 @@ curl -X GET http://chaos-app-backend:5000
 ```
 ```BASH
 for i in `seq 10000`; do curl -X GET http://chaos-app-backend:5000;\n; sleep 0.1; done
-kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/network-faults/network-faults-partition.yaml
+kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/network-faults/network-partition.yaml
 ```
 ### Clear
 ```BASH
