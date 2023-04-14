@@ -5,7 +5,7 @@
 ```BASH
 helm repo add chaos-mesh https://charts.chaos-mesh.org
 helm repo update
-helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --create-namespace --set dashboard.create=true --set dashboard.securityMode=false
+helm install chaos-mesh chaos-mesh/chaos-mesh --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock --namespace=chaos-testing --create-namespace --set dashboard.create=true --set dashboard.securityMode=false
 ```
 
 ## Configure app
@@ -69,5 +69,5 @@ kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/exp
 kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/web-app/cyclic-web-failure-pod.yaml
 ```
 ```BASH
-kubectl apply -f 
+kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/web-app/cyclic-web-network-delay.yaml
 ```

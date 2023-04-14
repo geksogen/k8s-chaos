@@ -1,7 +1,7 @@
 apiVersion: chaos-mesh.org/v1alpha1
 kind: Schedule
 metadata:
-  name: web-show-network-delay
+  name: network-delay
 spec:
   schedule: '@every 30s'
   type: NetworkChaos
