@@ -1,17 +1,22 @@
 apiVersion: chaos-mesh.org/v1alpha1
 kind: NetworkChaos
 metadata:
-  name: loss
+  name: partition
   namespace: chaos-testing
 spec:
-  action: loss
+  action: partition
   mode: one
   selector:
     namespaces:
       - chaos-app
     labelSelectors:
-      'app': 'chaos-app-backend'
-  loss:
-    loss: "25"
-    correlation: "25"
+      "app": "mycurlpod"
+  direction: to
+  target:
+    selector:
+      namespaces:
+        - chaos-app
+      labelSelectors:
+        "app": "chaos-app-backend"
+    mode: one
   duration: "10s"
