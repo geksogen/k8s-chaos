@@ -7,16 +7,12 @@ spec:
   action: partition
   mode: all
   selector:
-    namespaces:
-      - chaos-app
     labelSelectors:
-      'app': 'mycurlpod'
+      "app": "mycurlpod"
   direction: to
   target:
-    mode: all
     selector:
-      namespaces:
-        - chaos-app
       labelSelectors:
-        'app': 'chaos-app-backend'
+        "app": "chaos-app-backend"
+    mode: all
   duration: "50s"
