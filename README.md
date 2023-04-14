@@ -55,3 +55,11 @@ kubectl delete ns chaos-testing
 * [workflow](https://chaos-mesh.org/docs/2.3.3/create-chaos-mesh-workflow/)
 * [github-actions](https://chaos-mesh.org/docs/2.3.3/integrate-chaos-mesh-into-github-actions/)
 * [examples-experement](https://github.com/chaos-mesh/chaos-mesh/tree/master/examples)
+
+```BASH
+sh ./app.sh
+kubectl patch svc web-show -n chaos-app -p '{"spec": {"type": "NodePort"}}'
+```
+```BASH
+
+```
