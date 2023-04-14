@@ -18,18 +18,23 @@ kubectl -n chaos-app create deploy httpd --image=httpd --replicas=2
 
 ### Run experiment "pod-kill"
 ```BASH
-kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-kill.yaml
+kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-faults/pod-kill.yaml
 watch kubectl -n chaos-app get pod
-kubectl delete -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-kill.yaml
+kubectl delete -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-faults/pod-kill.yaml
 ```
 Until now Chaos Mesh didn't support updating a chaos. You can choose to create a new chaos with a different name instead.
 
 ### Run cyclic experiment "pod-kill"
 ```BASH
-kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/cyclic-pod-kill.yaml
+kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-faults/cyclic-pod-kill.yaml
 watch kubectl -n chaos-app get pod
 kubectl describe podchaos schedule-pod-kill-example -n chaos-testing
-kubectl delete -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/cyclic-pod-kill.yaml
+kubectl delete -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-faults/cyclic-pod-kill.yaml
+```
+
+### Run experiment "network-faults"
+```BASH
+
 ```
 
 ### Clear
