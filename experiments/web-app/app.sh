@@ -92,7 +92,7 @@ metadata:
   labels:
     app: web-show
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: web-show

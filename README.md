@@ -5,7 +5,7 @@
 ```BASH
 helm repo add chaos-mesh https://charts.chaos-mesh.org
 helm repo update
-helm install chaos-mesh chaos-mesh/chaos-mesh --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock --namespace=chaos-testing --create-namespace --set dashboard.create=true --set dashboard.securityMode=false
+helm install chaos-mesh chaos-mesh/chaos-mesh --set chaosDaemon.env.DOCKER_API_VERSION=1.40 --namespace=chaos-testing --create-namespace --set dashboard.create=true --set dashboard.securityMode=false
 ```
 
 ## Configure app
@@ -48,6 +48,7 @@ helm uninstall chaos-mesh --namespace=chaos-testing
 kubectl -n chaos-app delete all -l app=httpd
 kubectl -n chaos-app delete all -l app=chaos-app-backend-service
 kubectl -n chaos-app delete all -l app=chaos-app-backend
+kubectl -n chaos-app delete all -l app=web-show
 kubectl delete ns chaos-app
 kubectl delete ns chaos-testing
 ```
@@ -70,4 +71,7 @@ kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/exp
 ```
 ```BASH
 kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/web-app/cyclic-web-network-delay.yaml
+```
+```BASH
+kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/web-app/cyclic-web-network-bandwidth.yaml
 ```
