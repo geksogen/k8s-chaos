@@ -65,3 +65,9 @@ kubectl patch svc web-show -n chaos-app -p '{"spec": {"type": "NodePort"}}'
 ```BASH
 kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/web-app/cyclic-web-kill-pod.yaml
 ```
+```BASH
+kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/web-app/cyclic-web-failure-pod.yaml
+```
+```BASH
+kubectl apply -f 
+```
