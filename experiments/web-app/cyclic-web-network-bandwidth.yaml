@@ -1,0 +1,21 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: Schedule
+metadata:
+  name: network-bandwidth
+spec:
+  schedule: '@every 10s'
+  type: NetworkChaos
+  historyLimit: 5
+  concurrencyPolicy: Forbid
+  networkChaos:
+    action: bandwidth
+    mode: one
+    selector:
+      namespaces:
+        - chaos-app
+      labelSelectors:
+        app: web-show
+    bandwidth:
+      rate: '1mbps'
+      limit: 20971520
+      buffer: 10000
