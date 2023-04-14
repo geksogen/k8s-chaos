@@ -46,7 +46,6 @@ kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/exp
 ```BASH
 helm uninstall chaos-mesh --namespace=chaos-testing
 kubectl -n chaos-app delete all -l app=httpd
-kubectl -n chaos-app delete all -l app=chaos-app-backend-service
 kubectl -n chaos-app delete all -l app=chaos-app-backend
 kubectl -n chaos-app delete all -l app=web-show
 kubectl delete ns chaos-app
