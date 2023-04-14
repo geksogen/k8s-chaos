@@ -30,7 +30,7 @@ metadata:
   name: chaos-app-backend-service
   namespace: chaos-app
   labels:
-    app: chaos-app-backend
+    app: chaos-app-backend-service
 spec:
   ports:
   - port: 5000
