@@ -7,7 +7,7 @@ spec:
   templates:
     - name: the-entry
       templateType: Parallel
-      deadline: 240s
+      deadline: 2m
       children:
         - workflow-network-chaos
         - workflow-pod-chaos
