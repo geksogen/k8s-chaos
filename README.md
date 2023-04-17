@@ -62,7 +62,7 @@ kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/exp
 ```
 
 ### Run workflow for web app
-kubectl apply -f 
+kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/web-app/workflow-web.yaml
 
 ### Clear
 ```BASH

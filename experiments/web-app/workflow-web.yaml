@@ -36,6 +36,7 @@ spec:
         podChaos:
           action: pod-kill
           mode: one
+          concurrencyPolicy: Forbid
           selector:
             namespaces:
               - chaos-app
