@@ -15,7 +15,7 @@ kubectl create ns chaos-app
 kubectl annotate ns chaos-app chaos-mesh.org/inject=enabled
 kubectl -n chaos-app create deploy httpd --image=httpd --replicas=2
 ```
-
+##  Experiments
 ### Run experiment "pod-kill"
 ```BASH
 kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/pod-faults/pod-kill.yaml
@@ -61,6 +61,7 @@ kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/exp
 kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/web-app/cyclic-web-network-bandwidth.yaml
 ```
 
+##  Workflow
 ### Run workflow for web app
 ```BASH
 kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/web-app/workflow-web.yaml
