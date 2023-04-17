@@ -33,10 +33,10 @@ spec:
       schedule:
         schedule: '@every 10s'
         type: 'PodChaos'
+        concurrencyPolicy: Forbid
         podChaos:
           action: pod-kill
           mode: one
-          concurrencyPolicy: Forbid
           selector:
             namespaces:
               - chaos-app
