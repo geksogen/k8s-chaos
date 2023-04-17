@@ -1,0 +1,43 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: Workflow
+metadata:
+  name: web-workflow-parallel
+spec:
+  entry: the-entry
+  templates:
+    - name: the-entry
+      templateType: Parallel
+      deadline: 5m
+      children:
+        - workflow-network-chaos
+        - workflow-pod-chaos-schedule
+    - name: workflow-network-chaos
+      templateType: NetworkChaos
+      deadline: 20s
+      networkChaos:
+        direction: to
+        action: delay
+        mode: all
+        selector:
+          namespaces:
+            - chaos-app
+          labelSelectors:
+            'app': 'web-show'
+        delay:
+          latency: '90ms'
+          correlation: '25'
+          jitter: '90ms'
+    - name: workflow-pod-chaos-schedule
+      templateType: Schedule
+      deadline: 40s
+      schedule:
+        schedule: '@every 10s'
+        type: 'PodChaos'
+        podChaos:
+          action: pod-kill
+          mode: one
+          selector:
+            namespaces:
+              - chaos-app
+            labelSelectors:
+              'app': 'web-show'

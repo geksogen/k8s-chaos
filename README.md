@@ -42,22 +42,8 @@ curl -X GET http://chaos-app-backend:5000
 for i in `seq 10000`; do curl -X GET http://chaos-app-backend:5000;\n; sleep 0.1; done
 kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/network-faults/network-faults-delay.yaml
 ```
-### Clear
-```BASH
-helm uninstall chaos-mesh --namespace=chaos-testing
-kubectl -n chaos-app delete all -l app=httpd
-kubectl -n chaos-app delete all -l app=chaos-app-backend
-kubectl -n chaos-app delete all -l app=web-show
-kubectl delete ns chaos-app
-kubectl delete ns chaos-testing
-```
 
-###Reference links
-
-* [workflow](https://chaos-mesh.org/docs/2.3.3/create-chaos-mesh-workflow/)
-* [github-actions](https://chaos-mesh.org/docs/2.3.3/integrate-chaos-mesh-into-github-actions/)
-* [examples-experement](https://github.com/chaos-mesh/chaos-mesh/tree/master/examples)
-
+### Run experiment for web app
 ```BASH
 sh ./app.sh
 kubectl patch svc web-show -n chaos-app -p '{"spec": {"type": "NodePort"}}'
@@ -74,3 +60,22 @@ kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/exp
 ```BASH
 kubectl apply -f https://raw.githubusercontent.com/geksogen/k8s-chaos/master/experiments/web-app/cyclic-web-network-bandwidth.yaml
 ```
+
+### Run workflow for web app
+kubectl apply -f 
+
+### Clear
+```BASH
+helm uninstall chaos-mesh --namespace=chaos-testing
+kubectl -n chaos-app delete all -l app=httpd
+kubectl -n chaos-app delete all -l app=chaos-app-backend
+kubectl -n chaos-app delete all -l app=web-show
+kubectl delete ns chaos-app
+kubectl delete ns chaos-testing
+```
+
+###Reference links
+
+* [workflow](https://chaos-mesh.org/docs/2.3.3/create-chaos-mesh-workflow/)
+* [github-actions](https://chaos-mesh.org/docs/2.3.3/integrate-chaos-mesh-into-github-actions/)
+* [examples-experement](https://github.com/chaos-mesh/chaos-mesh/tree/master/examples)
